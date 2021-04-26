@@ -21,18 +21,22 @@ hduser@psd-VirtualBox:~$ jps
 5545 SecondaryNameNode
 6013 NodeManager
 6223 Jps
+
 hduser@psd-VirtualBox:~$ ls
 hadoop-2.6.0  hadoop-2.6.0.tar.gz  newfile.txt  testfile.txt
+
 hduser@psd-VirtualBox:~$ cat > inputTextFile.txt
 Deer Bear River
 Car Car River
 Deer Car Bear
 hduser@psd-VirtualBox:~$ ls
+
 hadoop-2.6.0  hadoop-2.6.0.tar.gz  inputTextFile.txt  newfile.txt  testfile.txt
 hduser@psd-VirtualBox:~$ cat inputTextFile.txt 
 Deer Bear River
 Car Car River
 Deer Car Bear
+
 hduser@psd-VirtualBox:~$ sudo su hduser
 [sudo] password for hduser: 
 hduser@psd-VirtualBox:~$ ls
@@ -43,14 +47,14 @@ hduser@psd-VirtualBox:~$ cd /usr/local
 hduser@psd-VirtualBox:/usr/local$ 
 hduser@psd-VirtualBox:/usr/local$ ls
 bin  etc  games  hadoop  hadoop_store  include  lib  man  sbin  share  src
+
 hduser@psd-VirtualBox:/usr/local$ cd hadoop
-hduser@psd-VirtualBox:/usr/local/hadoop$ cd hadoop-2.6.0
-bash: cd: hadoop-2.6.0: No such file or directory
-hduser@psd-VirtualBox:/usr/local/hadoop$ cd hadoop 2.6.0
-bash: cd: too many arguments
+
 hduser@psd-VirtualBox:/usr/local/hadoop$ ls
 bin  etc  include  lib  libexec  LICENSE.txt  logs  NOTICE.txt  README.txt  sbin  share
+
 hduser@psd-VirtualBox:/usr/local/hadoop$ cd share/hadoop/mapreduce
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ ls
 hadoop-mapreduce-client-app-2.6.0.jar         hadoop-mapreduce-client-jobclient-2.6.0-tests.jar
 hadoop-mapreduce-client-common-2.6.0.jar      hadoop-mapreduce-client-shuffle-2.6.0.jar
@@ -58,6 +62,7 @@ hadoop-mapreduce-client-core-2.6.0.jar        hadoop-mapreduce-examples-2.6.0.ja
 hadoop-mapreduce-client-hs-2.6.0.jar          lib
 hadoop-mapreduce-client-hs-plugins-2.6.0.jar  lib-examples
 hadoop-mapreduce-client-jobclient-2.6.0.jar   sources
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop jar hadoop-mapreduce-examples-2.6.0.jar 
 An example program must be given as the first argument.
 Valid program names are:
@@ -83,8 +88,10 @@ Valid program names are:
   wordmean: A map/reduce program that counts the average length of the words in the input files.
   wordmedian: A map/reduce program that counts the median length of the words in the input files.
   wordstandarddeviation: A map/reduce program that counts the standard deviation of the length of the words in the input files.
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -mkdir -p input
 21/04/26 14:44:32 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop dfs -put /home/hduser/inputTextFile.txt input/input.txt
 DEPRECATED: Use of this script to execute hdfs command is deprecated.
 Instead use the hdfs command for it.
@@ -101,14 +108,18 @@ drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:44 /user/hduser
 drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:45 /user/hduser/input
 -rw-r--r--   1 hduser supergroup         44 2021-04-26 14:45 /user/hduser/input/input.txt
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -cat /input/input.txt
+
 21/04/26 14:49:35 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 cat: `/input/input.txt': No such file or directory
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -cat /usr/hduser/input/input.txt
 21/04/26 14:50:18 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 cat: `/usr/hduser/input/input.txt': No such file or directory
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -mkdir input
 21/04/26 14:53:03 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 mkdir: `input': File exists
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ ls
 hadoop-mapreduce-client-app-2.6.0.jar         hadoop-mapreduce-client-jobclient-2.6.0-tests.jar
 hadoop-mapreduce-client-common-2.6.0.jar      hadoop-mapreduce-client-shuffle-2.6.0.jar
@@ -116,10 +127,12 @@ hadoop-mapreduce-client-core-2.6.0.jar        hadoop-mapreduce-examples-2.6.0.ja
 hadoop-mapreduce-client-hs-2.6.0.jar          lib
 hadoop-mapreduce-client-hs-plugins-2.6.0.jar  lib-examples
 hadoop-mapreduce-client-jobclient-2.6.0.jar   sources
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -ls 
 21/04/26 14:53:32 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Found 1 items
 drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:45 input
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -ls -R /
 21/04/26 14:53:49 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 drwxr-xr-x   - hduser supergroup          0 2021-04-19 15:30 /sample
@@ -130,8 +143,10 @@ drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:44 /user
 drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:44 /user/hduser
 drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:45 /user/hduser/input
 -rw-r--r--   1 hduser supergroup         44 2021-04-26 14:45 /user/hduser/input/input.txt
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -mkdir /input
 21/04/26 14:54:53 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -ls -R /
 21/04/26 14:55:03 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:54 /input
@@ -143,18 +158,21 @@ drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:44 /user
 drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:44 /user/hduser
 drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:45 /user/hduser/input
 -rw-r--r--   1 hduser supergroup         44 2021-04-26 14:45 /user/hduser/input/input.txt
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop dfs -put /home/hduser/inputTextFile.txt input/input.txt
 DEPRECATED: Use of this script to execute hdfs command is deprecated.
 Instead use the hdfs command for it.
 
 21/04/26 14:55:31 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 put: `input/input.txt': File exists
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop dfs -put /home/hduser/inputTextFile.txt /input/input.txt
 DEPRECATED: Use of this script to execute hdfs command is deprecated.
 Instead use the hdfs command for it.
 
 21/04/26 14:55:51 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -ls -R /
+
 21/04/26 14:56:02 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:55 /input
 -rw-r--r--   1 hduser supergroup         44 2021-04-26 14:55 /input/input.txt
@@ -166,16 +184,13 @@ drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:44 /user
 drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:44 /user/hduser
 drwxr-xr-x   - hduser supergroup          0 2021-04-26 14:45 /user/hduser/input
 -rw-r--r--   1 hduser supergroup         44 2021-04-26 14:45 /user/hduser/input/input.txt
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -cat /input/input.txt
 21/04/26 14:57:06 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Deer Bear River
 Car Car River
 Deer Car Bear
-hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -cat /user/hduser/input/input.txt
-21/04/26 15:04:45 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-Deer Bear River
-Car Car River
-Deer Car Bear
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop jar hadoop-mapreduce-examples-2.6.0.jar wordcount /input /firstExampleOut
 21/04/26 15:09:36 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 21/04/26 15:09:38 INFO Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id
@@ -294,11 +309,13 @@ Instead use the hdfs command for it.
 Found 2 items
 -rw-r--r--   1 hduser supergroup          0 2021-04-26 15:09 /firstExampleOut/_SUCCESS
 -rw-r--r--   1 hduser supergroup         28 2021-04-26 15:09 /firstExampleOut/part-r-00000
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -ls /firstExampleOut
 21/04/26 15:10:30 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Found 2 items
 -rw-r--r--   1 hduser supergroup          0 2021-04-26 15:09 /firstExampleOut/_SUCCESS
 -rw-r--r--   1 hduser supergroup         28 2021-04-26 15:09 /firstExampleOut/part-r-00000
+
 hduser@psd-VirtualBox:/usr/local/hadoop/share/hadoop/mapreduce$ hadoop fs -cat /firstExampleOut/part-r-00000
 21/04/26 15:22:13 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Bear	2
