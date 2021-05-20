@@ -73,6 +73,7 @@
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="DataTable1" />
                 <Variable x:TypeArguments="sd:DataTable" Name="DataTable2" />
+                <Variable x:TypeArguments="x:String" Name="table" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
